@@ -1,7 +1,7 @@
 package com.lorranpds.vitaflow.medical_registry.services.impl;
 
-import com.lorranpds.vitaflow.medical_registry.enums.TypeNotification;
 import com.lorranpds.vitaflow.medical_registry.dtos.NotificationRequest;
+import com.lorranpds.vitaflow.medical_registry.enums.TypeNotification;
 import com.lorranpds.vitaflow.medical_registry.factories.NotificationFactory;
 import com.lorranpds.vitaflow.medical_registry.services.NotificationService;
 import org.springframework.stereotype.Service;
@@ -19,6 +19,7 @@ public class NotificationsServiceImpl implements NotificationService {
     public NotificationsServiceImpl(List<NotificationFactory> factories) {
         this.factoryMap = factories.stream()
                 .collect(Collectors.toMap(NotificationFactory::getType, factory -> factory));
+//                .collect(Collectors.toMap(NotificationFactory::getType, Function.identity())); // Outra forma de fazer o que está acima
     }
 
     @Override
