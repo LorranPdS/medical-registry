@@ -1,9 +1,9 @@
 package com.lorranpds.vitaflow.medical_registry.services.impl;
 
-import com.lorranpds.vitaflow.medical_registry.dto.PedidoMovelRequest;
 import com.lorranpds.vitaflow.medical_registry.dto.PedidoMovelResponse;
 import com.lorranpds.vitaflow.medical_registry.enums.EstiloMovelEnum;
 import com.lorranpds.vitaflow.medical_registry.factories.MoveisFactory;
+import com.lorranpds.vitaflow.medical_registry.records.ConfiguracaoPedidoRecord;
 import com.lorranpds.vitaflow.medical_registry.services.PedidoMovelService;
 import org.springframework.stereotype.Service;
 
@@ -16,18 +16,21 @@ import java.util.stream.Collectors;
 public class PedidoMovelServiceImpl implements PedidoMovelService {
 
     private final Map<EstiloMovelEnum, MoveisFactory> fabricaCache;
+//    private final PedidoMovelMapper pedidoMovelMapper; // O Mapper passará a ser útil quando eu tiver uma Entity (JPA/Hibernate), daí implemento
 
-    public PedidoMovelServiceImpl(List<MoveisFactory> fabricasCache) {
+    public PedidoMovelServiceImpl(List<MoveisFactory> fabricasCache/*, PedidoMovelMapper pedidoMovelMapper*/) {
+//        this.pedidoMovelMapper = pedidoMovelMapper;
         this.fabricaCache = fabricasCache.stream()
-                .collect(Collectors.toUnmodifiableMap( // TODO: perguntar ao GEMINI: esse método ou o .toMap()?
+                .collect(Collectors.toUnmodifiableMap(
                         MoveisFactory::getEstilo,
                         factory -> factory
                 ));
     }
 
     @Override
-    public PedidoMovelResponse montarConjuntoPorEstilo(PedidoMovelRequest pedidoMovelRequest) {
-        MoveisFactory moveisFactory = fabricaCache.get(pedidoMovelRequest.getEstilo());
+    public PedidoMovelResponse montarConjuntoPorEstilo(ConfiguracaoPedidoRecord configuracaoPedidoRecord) { // TODO: aplicar o record da penúltima pergunta
+        MoveisFactory moveisFactory = fabricaCache.get(configuracaoPedidoRecord.estilo());
+
         return Optional.ofNullable(moveisFactory)
                 .orElseThrow(() -> new IllegalArgumentException("Estilo de móvel não encontrado"))
                 .montarConjunto();

@@ -1,9 +1,10 @@
 package com.lorranpds.vitaflow.medical_registry.services;
 
-import com.lorranpds.vitaflow.medical_registry.dto.PedidoMovelRequest;
 import com.lorranpds.vitaflow.medical_registry.dto.PedidoMovelResponse;
+import com.lorranpds.vitaflow.medical_registry.enums.EstiloMovelEnum;
+import com.lorranpds.vitaflow.medical_registry.records.ConfiguracaoPedidoRecord;
 
 public interface PedidoMovelService {
 
-    PedidoMovelResponse montarConjuntoPorEstilo(PedidoMovelRequest pedidoMovelRequest);
+    PedidoMovelResponse montarConjuntoPorEstilo(ConfiguracaoPedidoRecord estilo);
 }
