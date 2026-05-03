@@ -1,9 +1,9 @@
 package com.lorranpds.vitaflow.medical_registry.controller;
 
+import com.lorranpds.vitaflow.medical_registry.dto.ConfiguracaoPedidoCommand;
 import com.lorranpds.vitaflow.medical_registry.dto.PedidoMovelRequest;
 import com.lorranpds.vitaflow.medical_registry.dto.PedidoMovelResponse;
 import com.lorranpds.vitaflow.medical_registry.mappers.PedidoMovelMapper;
-import com.lorranpds.vitaflow.medical_registry.records.ConfiguracaoPedidoRecord;
 import com.lorranpds.vitaflow.medical_registry.services.PedidoMovelService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -23,7 +23,7 @@ public class PedidoMovelController {
     @PostMapping
     public ResponseEntity<PedidoMovelResponse> criarConjunto(@RequestBody PedidoMovelRequest pedidoMovelRequest){
         // O Mapper converte o DTO da Web para um "Objeto de Comando" do Service. Isso evita que o Service conheça o PedidoMovelRequest
-        ConfiguracaoPedidoRecord comando = pedidoMovelMapper.toCommand(pedidoMovelRequest);
+        ConfiguracaoPedidoCommand comando = pedidoMovelMapper.toCommand(pedidoMovelRequest);
 
         PedidoMovelResponse pedidoMovelResponse = pedidoMovelService.montarConjuntoPorEstilo(comando);
         return ResponseEntity.ok(pedidoMovelResponse);
