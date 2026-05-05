@@ -1,6 +1,6 @@
 package com.lorranpds.vitaflow.medical_registry.dto;
 
-import com.lorranpds.vitaflow.medical_registry.TypeNotificatioN;
+import com.lorranpds.vitaflow.medical_registry.enums.TypeNotification;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
@@ -9,7 +9,7 @@ import lombok.Data;
 public class NotificationRequest {
 
     @NotNull
-    private TypeNotificatioN type;
+    private TypeNotification type;
     @NotEmpty
     private String message;
 }

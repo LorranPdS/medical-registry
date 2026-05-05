@@ -1,6 +1,6 @@
 package com.lorranpds.vitaflow.medical_registry.dto;
 
-import com.lorranpds.vitaflow.medical_registry.TypeNotificatioN;
+import com.lorranpds.vitaflow.medical_registry.enums.TypeNotification;
 
-public record NotificationCommand(TypeNotificatioN type, String message) {
+public record NotificationCommand(TypeNotification type, String message) {
 }
