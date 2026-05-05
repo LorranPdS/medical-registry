@@ -1,8 +1,8 @@
 package com.lorranpds.vitaflow.medical_registry.services;
 
-import com.lorranpds.vitaflow.medical_registry.dtos.NotificationRequest;
+import com.lorranpds.vitaflow.medical_registry.dto.NotificationCommand;
 
 public interface NotificationService {
 
-    void execute(NotificationRequest notificationRequest);
+    void execute(NotificationCommand notificationCommand);
 }

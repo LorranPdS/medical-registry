@@ -1,6 +1,8 @@
 package com.lorranpds.vitaflow.medical_registry.controllers;
 
-import com.lorranpds.vitaflow.medical_registry.dtos.NotificationRequest;
+import com.lorranpds.vitaflow.medical_registry.dto.NotificationCommand;
+import com.lorranpds.vitaflow.medical_registry.dto.NotificationRequest;
+import com.lorranpds.vitaflow.medical_registry.mappers.NotificationMapper;
 import com.lorranpds.vitaflow.medical_registry.services.NotificationService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -11,16 +13,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("api/notifications")
+@RequestMapping("api/notification")
 @RequiredArgsConstructor
 public class NotificationController {
 
-	private final NotificationService notificationService;
+    private final NotificationMapper notificationMapper;
+    private final NotificationService notificationService;
 
-	@PostMapping
-	public ResponseEntity<Void> sendNotification(@RequestBody @Valid NotificationRequest request) {
-		notificationService.execute(request);
-		return ResponseEntity.accepted().build();
-	}
-
+    @PostMapping
+    public ResponseEntity<Void> sendNotification(@RequestBody @Valid NotificationRequest request){
+        NotificationCommand command = notificationMapper.toCommand(request);
+        notificationService.execute(command);
+        return ResponseEntity.accepted().build();
+    }
 }
