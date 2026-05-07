@@ -1,6 +1,10 @@
 package com.lorranpds.vitaflow.medical_registry.dto;
 
 import com.lorranpds.vitaflow.medical_registry.enums.EstiloMoveis;
+import lombok.Data;
 
-public record ConfiguracaoPedidoCommand(EstiloMoveis estilo) {
+@Data
+public class PedidoMoveisRequest {
+
+    private EstiloMoveis estilo;
 }

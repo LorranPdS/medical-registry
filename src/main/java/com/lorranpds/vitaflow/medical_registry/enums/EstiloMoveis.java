@@ -1,6 +1,6 @@
 package com.lorranpds.vitaflow.medical_registry.enums;
 
-public enum EstiloMovelEnum {
+public enum EstiloMoveis {
     MODERNO,
     VITORIANO
 }

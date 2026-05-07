@@ -1,7 +1,6 @@
-package com.lorranpds.vitaflow.medical_registry.factories;
+package com.lorranpds.vitaflow.medical_registry.abstractfactories;
 
-import com.lorranpds.vitaflow.medical_registry.dto.PedidoMovelResponse;
-import com.lorranpds.vitaflow.medical_registry.enums.EstiloMovelEnum;
+import com.lorranpds.vitaflow.medical_registry.enums.EstiloMoveis;
 import com.lorranpds.vitaflow.medical_registry.services.Cadeira;
 import com.lorranpds.vitaflow.medical_registry.services.Sofa;
 
@@ -11,15 +10,7 @@ import com.lorranpds.vitaflow.medical_registry.services.Sofa;
         possuir múltiplos métodos de criação para produtos diferentes (famílias) que devem combinar entre si.
  */
 public interface MoveisFactory {
-    EstiloMovelEnum getEstilo();
+    EstiloMoveis getEstilo();
     Cadeira criarCadeira();
     Sofa criarSofa();
-
-    default PedidoMovelResponse montarConjunto(){
-        return new PedidoMovelResponse(
-                this.getEstilo(),
-                this.criarCadeira(),
-                this.criarSofa()
-        );
-    }
 }

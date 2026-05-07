@@ -1,7 +1,7 @@
-package com.lorranpds.vitaflow.medical_registry.factories.impl;
+package com.lorranpds.vitaflow.medical_registry.abstractfactories.impl;
 
-import com.lorranpds.vitaflow.medical_registry.enums.EstiloMovelEnum;
-import com.lorranpds.vitaflow.medical_registry.factories.MoveisFactory;
+import com.lorranpds.vitaflow.medical_registry.abstractfactories.MoveisFactory;
+import com.lorranpds.vitaflow.medical_registry.enums.EstiloMoveis;
 import com.lorranpds.vitaflow.medical_registry.services.Cadeira;
 import com.lorranpds.vitaflow.medical_registry.services.Sofa;
 import com.lorranpds.vitaflow.medical_registry.services.impl.CadeiraModerna;
@@ -12,8 +12,8 @@ import org.springframework.stereotype.Component;
 public class ModernoMoveisFactory implements MoveisFactory {
 
     @Override
-    public EstiloMovelEnum getEstilo() {
-        return EstiloMovelEnum.MODERNO;
+    public EstiloMoveis getEstilo() {
+        return EstiloMoveis.MODERNO;
     }
 
     @Override
