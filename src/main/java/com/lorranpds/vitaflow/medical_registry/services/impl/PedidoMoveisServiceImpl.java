@@ -32,7 +32,7 @@ public class PedidoMoveisServiceImpl implements PedidoMoveisService {
     @Override
     public PedidoMoveisResponse montarConjuntoPorEstilo(ConfiguracaoPedidoCommand command) { // TODO: aplicar o record da penúltima pergunta
         MoveisFactory moveisFactory = fabricaCache.get(command.estilo());
-        Optional.ofNullable(moveisFactory).orElseThrow(() -> new IllegalArgumentException("Estilo de móvel não encontrado"));
+        Optional.ofNullable(moveisFactory).orElseThrow(() -> new IllegalArgumentException("Furniture style '"+command.estilo()+"' not implemented"));
 
         // Criamos uma vez
         Cadeira cadeira = moveisFactory.criarCadeira();
