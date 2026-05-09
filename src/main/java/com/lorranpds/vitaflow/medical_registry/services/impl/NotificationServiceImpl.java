@@ -27,7 +27,7 @@ public class NotificationServiceImpl implements NotificationService {
         // Se tipo for "WhatsApp", ele busca "WhatsAppFactory" no mapa
         Optional.ofNullable(factoryMap // Usamos ofNullable porque o retorno do mapa pode ser null
                         .get(notificationCommand.type())) // Se estiver presente, seguimos para o processamento
-                .orElseThrow(() -> new IllegalArgumentException("No notification factory found for type " + notificationCommand.type())) // Se estiver vazio (null), lançamos a exceção na hora
+                .orElseThrow(() -> new IllegalArgumentException("No notification factory implemented for type '" + notificationCommand.type()+"'")) // Se estiver vazio (null), lançamos a exceção na hora
                 .processSend(notificationCommand.message()); // Aqui já temos a factory garantida (não é null)
     }
 }
