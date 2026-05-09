@@ -1,11 +1,13 @@
 package com.lorranpds.vitaflow.medical_registry.services.impl;
 
 import com.lorranpds.vitaflow.medical_registry.services.Cadeira;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 public class CadeiraVitoriana implements Cadeira {
 
     @Override
     public void sentar() {
-        System.out.println("Sentando em uma Cadeira Vitoriana");
+        log.info("### Sentando em uma Cadeira Vitoriana ###");
     }
 }

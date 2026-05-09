@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(HttpMessageNotReadableException.class)
-    public ResponseEntity<DefaultErrorResponse> handleStyleNotFound(HttpMessageNotReadableException ex){
+    public ResponseEntity<DefaultErrorResponse> handleStyleNotFound(){
         String message = "The notification type specified does not exist or is invalid.";
         return ResponseEntity
                 .status(HttpStatus.BAD_REQUEST)
