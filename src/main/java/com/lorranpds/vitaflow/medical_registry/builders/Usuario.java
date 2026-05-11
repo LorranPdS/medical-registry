@@ -18,6 +18,14 @@ public class Usuario {
         this.ativo = builder.ativo;
     }
 
+    public Builder toBuilder(){
+        return new Builder()
+                .comNome(this.nome)
+                .comPais(this.pais)
+                .comIdioma(this.idioma)
+                .isAtivo(this.ativo);
+    }
+
     // ESSE METODO AQUI É O BUILDER TEMPLATE - UM METODO COM INFORMAÇOES PRONTAS
     public static Usuario.Builder builderPadraoBrasil(){
         return new Usuario.Builder()

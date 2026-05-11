@@ -17,12 +17,12 @@ public class Pedido {
         this.observacao = builder.observacao;
     }
 
-    /*
-        Depois perguntar ao GEMINI: não seria o caso no metodo toString() abaixo
-        eu colocar os atributos referenciando o próprio atributo da classe? Ou seja,
-        seria mais ou menos bem visto se eu colocasse "this.numeroPedido",
-        "this.cliente" em vez de "numeroPedido" e "cliente" ?
-     */
+    public Builder toBuilder(){
+        return new Builder(this.numeroPedido, this.cliente)
+                .comEntregaExpressa(this.entregaExpressa)
+                .comObservacao(this.observacao);
+    }
+
     @Override
     public String toString() {
         return "Pedido #" + numeroPedido + " para " + cliente +
