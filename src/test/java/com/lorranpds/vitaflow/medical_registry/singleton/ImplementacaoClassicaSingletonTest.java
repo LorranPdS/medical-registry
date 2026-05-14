@@ -12,8 +12,8 @@ class ImplementacaoClassicaSingletonTest {
         ImplementacaoClassicaSingleton gerenciador2 = ImplementacaoClassicaSingleton.getInstance();
         System.out.println(gerenciador2);
 
-        System.out.println(gerenciador1 == gerenciador2);
-        gerenciador1.exibirTema();
+        System.out.println("Eles possuem a mesma instância? " + (gerenciador1 == gerenciador2));
+        gerenciador1.getConnection();
     }
 
     @Test

@@ -2,29 +2,29 @@ package com.lorranpds.vitaflow.medical_registry.singleton;
 
 import org.junit.jupiter.api.Test;
 
-class EnumSingletonTest {
+class BancoDadosConnectionTest {
 
     @Test
     void testandoExecucaoDoMetodoDoSingleton(){
-        EnumSingleton.INSTANCE.exibirTema();
+        BancoDadosConnection.INSTANCE.getConnection();
     }
 
     @Test
     void comprovandoQueAsInstanciasSaoUnicas(){
-        EnumSingleton gerenciador1 = EnumSingleton.INSTANCE;
+        BancoDadosConnection gerenciador1 = BancoDadosConnection.INSTANCE;
         System.out.println(gerenciador1);
 
-        EnumSingleton gerenciador2 = EnumSingleton.INSTANCE;
+        BancoDadosConnection gerenciador2 = BancoDadosConnection.INSTANCE;
         System.out.println(gerenciador2);
 
         System.out.println(gerenciador1 == gerenciador2);
-        gerenciador1.exibirTema();
+        gerenciador1.getConnection();
     }
 
     @Test
     void cenarioDeErroComThreadsSemSynchronizedNaoOcorreComEnumSingleton(){
         Runnable tarefa = () -> {
-            EnumSingleton gerenciador = EnumSingleton.INSTANCE;
+            BancoDadosConnection gerenciador = BancoDadosConnection.INSTANCE;
             System.out.println(Thread.currentThread().getName() + " pegou o objeto: " + gerenciador.hashCode());
         };
 

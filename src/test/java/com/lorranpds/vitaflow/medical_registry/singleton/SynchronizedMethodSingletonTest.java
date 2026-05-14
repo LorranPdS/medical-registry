@@ -1,5 +1,6 @@
 package com.lorranpds.vitaflow.medical_registry.singleton;
 
+import com.lorranpds.vitaflow.medical_registry.connectionexample.ConnectionExample;
 import org.junit.jupiter.api.Test;
 /*
     PONTO NEGATIVO DO SYNCHRONIZED METHOD: Performance.
@@ -17,7 +18,8 @@ class SynchronizedMethodSingletonTest {
         System.out.println(gerenciador2);
 
         System.out.println(gerenciador1 == gerenciador2);
-        gerenciador1.showConfiguration();
+        ConnectionExample connection = gerenciador1.getConnection();
+        System.out.println(connection);
     }
 
     @Test
