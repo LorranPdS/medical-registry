@@ -1,6 +1,7 @@
-package com.lorranpds.vitaflow.medical_registry.prototypes.impl;
+package com.lorranpds.vitaflow.medical_registry.domain.interfaces;
 
-import com.lorranpds.vitaflow.medical_registry.enums.Cargo;
+import com.lorranpds.vitaflow.medical_registry.domain.Cargo;
+import com.lorranpds.vitaflow.medical_registry.domain.ContratoTrabalho;
 import org.junit.jupiter.api.Test;
 
 class ContratoTrabalhoTest {

@@ -1,4 +1,4 @@
-package com.lorranpds.vitaflow.medical_registry.enums;
+package com.lorranpds.vitaflow.medical_registry.domain;
 
 public enum Cargo {
     DESENVOLVEDOR_JAVA,

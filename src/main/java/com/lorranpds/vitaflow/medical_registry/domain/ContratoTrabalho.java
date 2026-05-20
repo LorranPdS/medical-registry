@@ -1,7 +1,6 @@
-package com.lorranpds.vitaflow.medical_registry.prototypes.impl;
+package com.lorranpds.vitaflow.medical_registry.domain;
 
-import com.lorranpds.vitaflow.medical_registry.enums.Cargo;
-import com.lorranpds.vitaflow.medical_registry.prototypes.Prototipo;
+import com.lorranpds.vitaflow.medical_registry.domain.interfaces.Prototipo;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -24,7 +23,7 @@ public class ContratoTrabalho implements Prototipo<ContratoTrabalho> {
 
     // Simula a ida ao banco de dados ou microsserviço
     private RegrasSindicato buscarRegrasSindicatoNoBanco(Cargo cargo) {
-        System.out.println("\n[DB] Buscando regras para " + cargo + " (Pausa de 2s)...");
+        System.out.println("Buscando regras para " + cargo + " (Pausa de 2s)...");
         try {
             Thread.sleep(2000);
         } catch (InterruptedException e) {

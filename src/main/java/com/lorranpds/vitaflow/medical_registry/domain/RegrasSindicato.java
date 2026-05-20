@@ -1,4 +1,4 @@
-package com.lorranpds.vitaflow.medical_registry.prototypes.impl;
+package com.lorranpds.vitaflow.medical_registry.domain;
 
 import lombok.Getter;
 
