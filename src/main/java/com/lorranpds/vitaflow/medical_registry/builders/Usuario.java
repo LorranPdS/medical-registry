@@ -2,6 +2,8 @@ package com.lorranpds.vitaflow.medical_registry.builders;
 
 import lombok.Getter;
 
+import static java.util.Objects.isNull;
+
 // Essa classe será um modelo de Builder Template
 @Getter
 public class Usuario {
@@ -50,17 +52,23 @@ public class Usuario {
         private boolean ativo;
 
         public Builder comNome(String nome){
-            this.nome = nome;
+            if(!isNull(nome)){
+                this.nome = nome;
+            }
             return this;
         }
 
         public Builder comPais(String pais){
-            this.pais = pais;
+            if(!isNull(pais)){
+                this.pais = pais;
+            }
             return this;
         }
 
         public Builder comIdioma(String idioma){
-            this.idioma = idioma;
+            if(!isNull(idioma)){
+                this.idioma = idioma;
+            }
             return this;
         }
 

@@ -2,6 +2,8 @@ package com.lorranpds.vitaflow.medical_registry.builders;
 
 import lombok.Getter;
 
+import static java.util.Objects.isNull;
+
 // Product Class - Pedido
 @Getter
 public class Pedido {
@@ -46,7 +48,9 @@ public class Pedido {
         }
 
         public Builder comObservacao(String obs){
-            this.observacao = obs;
+            if(!isNull(obs)){
+                this.observacao = obs;
+            }
             return this;
         }
 
