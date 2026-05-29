@@ -1,5 +1,11 @@
 package com.lorranpds.vitaflow.medical_registry.strategies.interfaces;
 
+import com.lorranpds.vitaflow.medical_registry.services.TipoFrete;
+
+import java.math.BigDecimal;
+
 public interface FreteStrategy {
-    double calcular(double pesoEmKg, double distanciaEmKm);
+    TipoFrete getTipoFrete();
+
+    BigDecimal calcular(BigDecimal pesoEmKg, BigDecimal distanciaEmKm);
 }
