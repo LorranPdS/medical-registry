@@ -25,12 +25,30 @@ public class CalculadoraFreteService implements CalculadoraFreteServiceInterface
     @Override
     public List<FreteResponse> calcular(FreteCommand command) {
         // 1. Defesa/Validação de negócio com o utilitário do Spring
-        if (CollectionUtils.isEmpty(command.tiposFrete())) {
-            throw new IllegalArgumentException("Por favor, selecione ao menos uma modalidade de frete.");
-        }
+        validarCommand(command, this.freteStrategyMap);
 
         // 2. Direciona de forma limpa e expressiva para o processamento em lote
         return executarCalculoEmLote(command);
+    }
+
+    private static void validarCommand(FreteCommand command, Map<TipoFrete, FreteStrategy> freteStrategyMap) {
+        // 1. Valida integridade básica
+        if (CollectionUtils.isEmpty(command.tiposFrete())) {
+            throw new IllegalArgumentException("Por favor, selecione ao menos uma modalidade de frete.");
+        }
+        if (command.pesoEmKg().compareTo(BigDecimal.ZERO) <= 0) {
+            throw new IllegalArgumentException("O peso deve ser maior que zero.");
+        }
+        if (command.distanciaEmKm().compareTo(BigDecimal.ZERO) <= 0) {
+            throw new IllegalArgumentException("A distância deve ser maior que zero.");
+        }
+
+        // 2. Valida suporte do sistema (Fail-Fast puro!) - Proteção caso o mapa não encontre a classe cadastrada
+        for (TipoFrete tipo : command.tiposFrete()) {
+            if (!freteStrategyMap.containsKey(tipo)) {
+                throw new IllegalArgumentException("Modalidade de frete não suportada: " + tipo);
+            }
+        }
     }
 
     // Passa o rolo compressor (Stream) por cima de todos os Enums solicitados
@@ -43,11 +61,6 @@ public class CalculadoraFreteService implements CalculadoraFreteServiceInterface
     private FreteResponse calcularIndividual(TipoFrete tipo, BigDecimal peso, BigDecimal distancia) {
         // Busca a estratégia no catálogo
         FreteStrategy estrategia = freteStrategyMap.get(tipo);
-
-        // Fail-Fast: Proteção caso o mapa não encontre a classe cadastrada
-        if (estrategia == null) {
-            throw new IllegalArgumentException("Modalidade de frete não suportada: " + tipo);
-        }
 
         // Executa o cálculo cego da estratégia ativa
         BigDecimal valorCalculado = estrategia.calcular(peso, distancia);
