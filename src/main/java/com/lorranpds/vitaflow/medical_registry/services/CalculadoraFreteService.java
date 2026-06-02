@@ -44,11 +44,11 @@ public class CalculadoraFreteService implements CalculadoraFreteServiceInterface
         }
 
         // 2. Valida suporte do sistema (Fail-Fast puro!) - Proteção caso o mapa não encontre a classe cadastrada
-        for (TipoFrete tipo : command.tiposFrete()) {
-            if (!freteStrategyMap.containsKey(tipo)) {
-                throw new IllegalArgumentException("Modalidade de frete não suportada: " + tipo);
-            }
-        }
+//        for (TipoFrete tipo : command.tiposFrete()) {
+//            if (!freteStrategyMap.containsKey(tipo)) {
+//                throw new IllegalArgumentException("Modalidade de frete não suportada: " + tipo);
+//            }
+//        }
     }
 
     // Passa o rolo compressor (Stream) por cima de todos os Enums solicitados
@@ -61,6 +61,15 @@ public class CalculadoraFreteService implements CalculadoraFreteServiceInterface
     private FreteResponse calcularIndividual(TipoFrete tipo, BigDecimal peso, BigDecimal distancia) {
         // Busca a estratégia no catálogo
         FreteStrategy estrategia = freteStrategyMap.get(tipo);
+
+        /*
+         Preferi não usar Fail-First para colocar lá no primeiro metodo porque esse tipo de cenário somente ocorrerá
+         por erro de implementaçao, que no meu entendimento tem grandes possibilidades de ser notado na fase de testes
+         antes de chegar em Produçao
+         */
+        if(estrategia == null){
+            throw new IllegalArgumentException("Modalidade de frete não suportada: " + tipo);
+        }
 
         // Executa o cálculo cego da estratégia ativa
         BigDecimal valorCalculado = estrategia.calcular(peso, distancia);
