@@ -46,7 +46,7 @@ class BebidaCafeinadaTest {
         // O chá deve ter apenas 3 passos, porque o gancho 'clienteQuerCondimentos' retornou false
         assertEquals(3, passos.size(), "O processo de chá deve ter apenas 3 passos");
         assertEquals("Fervendo água", passos.get(0));
-        assertEquals("Mergulhando o saquinho de chá", passos.get(1));
+        assertEquals("Mergulhando o sachê de chá", passos.get(1));
         assertEquals("Colocando na xícara", passos.get(2));
 
         // Verifica se o passo de condimentos realmente NÃO foi adicionado à lista

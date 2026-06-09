@@ -7,8 +7,8 @@ public class Cha extends BebidaCafeinada {
 
     @Override
     protected void preparar() {
-        System.out.println("Mergulhando o saquinho de chá...");
-        getPassosExecutados().add("Mergulhando o saquinho de chá");
+        System.out.println("Mergulhando o sachê de chá...");
+        getPassosExecutados().add("Mergulhando o sachê de chá");
     }
 
     @Override
