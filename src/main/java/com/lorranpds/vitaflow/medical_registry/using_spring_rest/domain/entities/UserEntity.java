@@ -3,6 +3,7 @@ package com.lorranpds.vitaflow.medical_registry.using_spring_rest.domain.entitie
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Data
@@ -17,4 +18,6 @@ public class UserEntity { // Usuário
     private String nome;
     private Integer idade;
     private String email;
+    private Boolean statusAtivo;
+    private LocalDateTime dataCriacao;
 }

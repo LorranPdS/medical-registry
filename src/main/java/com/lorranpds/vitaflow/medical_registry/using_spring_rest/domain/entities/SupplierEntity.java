@@ -3,6 +3,7 @@ package com.lorranpds.vitaflow.medical_registry.using_spring_rest.domain.entitie
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Data
@@ -13,4 +14,6 @@ public class SupplierEntity {
     private String nome;
     private String endereco;
     private Integer limiteDiasParaRecebimento;
+    private LocalDateTime dataCriacao;
+    private Boolean statusAtivo;
 }

@@ -4,6 +4,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Data
@@ -18,4 +19,6 @@ public class CustomerEntity { // cliente
     private String nome;
     private String endereco;
     private BigDecimal limiteCredito;
+    private LocalDateTime dataCriacao;
+    private Boolean statusAtivo;
 }
