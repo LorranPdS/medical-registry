@@ -9,12 +9,12 @@ import org.springframework.transaction.annotation.Transactional;
 public abstract class AbstractEntityService<DTO, E> {
 
     @Transactional
-    public final E processarCriacao(DTO command) {
+    public final E processarCriacao(DTO dto) {
         // 1. Valida a regra de negócio baseada no comando
-        validar(command);
+        validar(dto);
 
         // 2. Transforma o Comando limpo na Entidade suja de banco (Passo novo!)
-        E entity = converterParaEntidade(command);
+        E entity = converterParaEntidade(dto);
 
         // 3. Salva no banco
         E savedEntity = salvarNoBanco(entity);
@@ -26,7 +26,7 @@ public abstract class AbstractEntityService<DTO, E> {
     }
 
     // Passos Abstratos que as filhas DEVEM implementar
-    protected abstract void validar(DTO command);
+    protected abstract void validar(DTO dto);
     protected abstract E converterParaEntidade(DTO dto);
 
     protected E salvarNoBanco(E entity) {

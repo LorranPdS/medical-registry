@@ -16,17 +16,17 @@ public class SupplierService extends AbstractEntityService<SupplierDTO, Supplier
     private static final Integer NUMERO_MINIMO_DIAS_RECEBIMENTO = 2;
 
     @Override
-    protected void validar(SupplierDTO supplier) {
-        if(!StringUtils.hasText(supplier.nome())){
+    protected void validar(SupplierDTO dto) {
+        if(!StringUtils.hasText(dto.nome())){
             throw new IllegalArgumentException("Nome de cliente precisa ser informado");
         }
-        if(!StringUtils.hasText(supplier.endereco())){
+        if(!StringUtils.hasText(dto.endereco())){
             throw new IllegalArgumentException("Endereço de cliente precisa ser informado");
         }
-        if (isLimiteDiasParaRecebimentoValido(supplier.limiteDiasParaRecebimento())) {
+        if (isLimiteDiasParaRecebimentoValido(dto.limiteDiasParaRecebimento())) {
             throw new IllegalArgumentException("Limite de crédito não pode ser inferior a 2.000");
         }
-        log.info("### Fornecedor {} validado com sucesso", supplier.nome());
+        log.info("### Fornecedor {} validado com sucesso", dto.nome());
     }
 
     @Override

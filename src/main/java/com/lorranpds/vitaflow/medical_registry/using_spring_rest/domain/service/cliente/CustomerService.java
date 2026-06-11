@@ -17,17 +17,17 @@ public class CustomerService extends AbstractEntityService<CustomerDTO, Customer
     private static final BigDecimal LIMITE_MINIMO_CREDITO = BigDecimal.valueOf(2_000);
 
     @Override
-    protected void validar(CustomerDTO customer) {
-        if(!StringUtils.hasText(customer.nome())){
+    protected void validar(CustomerDTO dto) {
+        if(!StringUtils.hasText(dto.nome())){
             throw new IllegalArgumentException("Nome de cliente precisa ser informado");
         }
-        if(!StringUtils.hasText(customer.endereco())){
+        if(!StringUtils.hasText(dto.endereco())){
             throw new IllegalArgumentException("Endereço de cliente precisa ser informado");
         }
-        if (isCreditoInvalido(customer.limiteCredito())) {
+        if (isCreditoInvalido(dto.limiteCredito())) {
             throw new IllegalArgumentException("Limite de crédito não pode ser inferior a 2.000");
         }
-        log.info("### Cliente {} validado com sucesso", customer.nome());
+        log.info("### Cliente {} validado com sucesso", dto.nome());
     }
 
     @Override

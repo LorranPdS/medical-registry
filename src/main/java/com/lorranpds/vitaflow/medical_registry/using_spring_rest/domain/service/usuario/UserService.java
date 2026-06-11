@@ -17,19 +17,19 @@ public class UserService extends AbstractEntityService<UserDTO, UserEntity> {
     private static final Integer DEZOITO_ANOS = 18;
 
     @Override
-    protected void validar(UserDTO usuario){
-        if (!StringUtils.hasText(usuario.nome())) {
+    protected void validar(UserDTO dto){
+        if (!StringUtils.hasText(dto.nome())) {
             throw new IllegalArgumentException("Obrigatório o preenchimento do nome");
         }
 
-        if(usuario.idade() < DEZOITO_ANOS){
+        if(dto.idade() < DEZOITO_ANOS){
             throw new IllegalArgumentException("Usuário precisa ter no mínimo 18 anos");
         }
 
-        if(!StringUtils.hasText(usuario.email())){
+        if(!StringUtils.hasText(dto.email())){
             throw new IllegalArgumentException("Obrigatório o preenchimento do email");
         }
-        log.info("Usuário {} validado com sucesso", usuario.nome());
+        log.info("Usuário {} validado com sucesso", dto.nome());
     }
 
     @Override
