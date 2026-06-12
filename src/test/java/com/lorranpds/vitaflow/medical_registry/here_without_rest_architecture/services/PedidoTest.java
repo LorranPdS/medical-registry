@@ -68,7 +68,7 @@ class PedidoTest{
             });
          */
 
-        assertEquals("Ação 'Pagar' não permitida no estado atual para o pedido [id="+pedido.getId()+"].", exception.getMessage());
+        assertEquals("Ação 'Pagar' não permitida no estado atual EstadoCancelado para o pedido [id="+pedido.getId()+"].", exception.getMessage());
     }
 
     @Test
@@ -84,7 +84,7 @@ class PedidoTest{
                 pedido.despacharPedido();
             });
          */
-        assertEquals("Ação 'Enviar' não permitida no estado atual para o pedido [id="+pedido.getId()+"].", exception.getMessage());
+        assertEquals("Ação 'Enviar' não permitida no estado atual EstadoPendente para o pedido [id="+pedido.getId()+"].", exception.getMessage());
     }
 
     @Test
