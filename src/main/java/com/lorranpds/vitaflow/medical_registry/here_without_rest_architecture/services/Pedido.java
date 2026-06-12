@@ -9,9 +9,9 @@ import java.util.UUID;
 
 // 3. O Contexto
 @Slf4j
+@Getter
 public class Pedido {
 
-    @Getter
     private UUID id;
     private EstadoPedido estado;
 
