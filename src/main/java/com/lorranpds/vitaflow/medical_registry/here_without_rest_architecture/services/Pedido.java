@@ -12,7 +12,7 @@ import java.util.UUID;
 @Getter
 public class Pedido {
 
-    private UUID id;
+    private final UUID id;
     private EstadoPedido estado;
 
     public Pedido(UUID id) {
