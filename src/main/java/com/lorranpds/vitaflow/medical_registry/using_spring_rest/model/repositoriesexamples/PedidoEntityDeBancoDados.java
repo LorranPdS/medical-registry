@@ -2,6 +2,7 @@ package com.lorranpds.vitaflow.medical_registry.using_spring_rest.model.reposito
 
 import com.lorranpds.vitaflow.medical_registry.using_spring_rest.infrastructure.StatusPedido;
 import com.lorranpds.vitaflow.medical_registry.using_spring_rest.model.entitiesexample.PedidoEntity;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
 
 import java.math.BigDecimal;
@@ -9,6 +10,7 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.UUID;
 
+@Slf4j
 @Repository
 public class PedidoEntityDeBancoDados implements PedidoRepository {
 
@@ -47,6 +49,7 @@ public class PedidoEntityDeBancoDados implements PedidoRepository {
     @Override
     public void save(PedidoEntity pedidoEntity) {
         // Não faz nada
+        log.info("[MOCK PEDIDO_ENTITY] Pedido [id={}] salvo na base de dados", pedidoEntity.getId());
     }
 
     // ------------------------- 2) como seria usando o SWITCH e ARROW -------------------------

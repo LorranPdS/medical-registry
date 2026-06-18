@@ -26,9 +26,17 @@ public enum StatusPedido implements OperacoesPedido {
             return CANCELADO; /* Lógica de estorno vai no service */
         }
 
+        /* OBSERVAÇÃO
+            - Somente no status PAGO é que pode existir a situação de se exigir
+            estorno porque aqui é o momento em que tem dinheiro.
+            - Pela nossa regra de negócio, depois de ENVIADO não há estorno
+            - Não precisa olhar para o significado dos metodos 'enviar()' e 'cancelar()'
+            mas sim para o enum principal, que seria o PAGO, que dá significado as outras
+            ações que podem ocorrer a partir dele (ser enviado, cancelado e se pode ter estorno)
+         */
         @Override
         public boolean exigeEstorno() {
-            return true; // Só o estado PAGO diz que sim
+            return true;
         }
     },
 
@@ -45,5 +53,5 @@ public enum StatusPedido implements OperacoesPedido {
 
     CANCELADO {
         // Estado final: usa os defaults de erro da interface
-    };
+    }
 }

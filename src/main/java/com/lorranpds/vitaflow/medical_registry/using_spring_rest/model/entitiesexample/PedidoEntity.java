@@ -17,7 +17,7 @@ public class PedidoEntity {
     private final UUID id;
     private StatusPedido status;
     @Setter
-    private BigDecimal valor; // Só para fins de exemplo
+    private BigDecimal valor; // Só para fins de exemplo no retorno de valores para a base de dados
 
     public void setStatus(StatusPedido status) {
         this.status = status;
