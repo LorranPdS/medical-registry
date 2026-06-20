@@ -1,8 +1,11 @@
 package com.lorranpds.vitaflow.medical_registry.here_without_rest_architecture.handlers;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.math.BigDecimal;
 
 // 2. Handler Concreto
+@Slf4j
 public class Gerente extends Aprovador {
 
     public static final BigDecimal LIMITE_APROVACAO = BigDecimal.valueOf(1000);
@@ -10,7 +13,7 @@ public class Gerente extends Aprovador {
     @Override
     public void processarRequisicao(BigDecimal valor){
         if (isValorMenorOuIgualLimite(valor)) {
-            System.out.println("Gerente aprovou a compra de R$" + valor);
+            log.info("{} aprovou a compra de R$ {}", this.getClass().getSimpleName(), valor);
         } else if (proximoAprovador != null) {
             proximoAprovador.processarRequisicao(valor);
         }
