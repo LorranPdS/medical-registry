@@ -1,3 +1,7 @@
 spring:
   application:
     name: medical-registry
+
+app:
+  email:
+    active-provider: GMAIL # Se mudar para OUTLOOK e reiniciar, o sistema vira a chave sozinho
