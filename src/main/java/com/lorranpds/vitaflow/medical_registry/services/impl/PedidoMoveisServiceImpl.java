@@ -1,7 +1,7 @@
 package com.lorranpds.vitaflow.medical_registry.services.impl;
 
 import com.lorranpds.vitaflow.medical_registry.abstractfactories.MoveisFactory;
-import com.lorranpds.vitaflow.medical_registry.dto.ConfiguracaoPedidoCommand;
+import com.lorranpds.vitaflow.medical_registry.dto.ConfiguracaoPedidoDTO;
 import com.lorranpds.vitaflow.medical_registry.dto.PedidoMoveisResponse;
 import com.lorranpds.vitaflow.medical_registry.enums.EstiloMoveis;
 import com.lorranpds.vitaflow.medical_registry.services.Cadeira;
@@ -30,9 +30,9 @@ public class PedidoMoveisServiceImpl implements PedidoMoveisService {
     }
 
     @Override
-    public PedidoMoveisResponse montarConjuntoPorEstilo(ConfiguracaoPedidoCommand command) { // TODO: aplicar o record da penúltima pergunta
-        MoveisFactory moveisFactory = fabricaCache.get(command.estilo());
-        Optional.ofNullable(moveisFactory).orElseThrow(() -> new IllegalArgumentException("Furniture style '"+command.estilo()+"' not implemented"));
+    public PedidoMoveisResponse montarConjuntoPorEstilo(ConfiguracaoPedidoDTO dto) { // TODO: aplicar o record da penúltima pergunta
+        MoveisFactory moveisFactory = fabricaCache.get(dto.estilo());
+        Optional.ofNullable(moveisFactory).orElseThrow(() -> new IllegalArgumentException("Furniture style '"+ dto.estilo()+"' not implemented"));
 
         // Criamos uma vez
         Cadeira cadeira = moveisFactory.criarCadeira();
