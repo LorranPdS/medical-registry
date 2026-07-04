@@ -14,12 +14,12 @@ public class EditorTexto {
     }
 
     // Cria o snapshot
-    public EditorMemento salvar() {
+    public EditorMemento criarSnapshot() {
         return new EditorMemento(this.conteudo);
     }
 
     // Restaura o snapshot
-    public void restaurar(EditorMemento memento) {
+    public void removerSnapshot(EditorMemento memento) {
         this.conteudo = memento.getConteudo();
     }
 }

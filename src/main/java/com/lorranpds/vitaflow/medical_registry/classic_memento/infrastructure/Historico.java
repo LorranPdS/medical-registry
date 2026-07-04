@@ -8,12 +8,12 @@ public class Historico {
     private Stack<EditorMemento> historico = new Stack<>();
 
     public void fazerBackup(EditorTexto editor) {
-        historico.push(editor.salvar());
+        historico.push(editor.criarSnapshot());
     }
 
     public void desfazer(EditorTexto editor) {
         if (!historico.isEmpty()) {
-            editor.restaurar(historico.pop());
+            editor.removerSnapshot(historico.pop());
         } else {
             System.out.println("Nada para desfazer!");
         }
