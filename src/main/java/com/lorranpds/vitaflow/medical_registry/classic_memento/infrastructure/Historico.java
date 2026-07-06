@@ -5,7 +5,7 @@ import java.util.Stack;
 // 3. Caretaker: Gerencia o histórico
 public class Historico {
 
-    private Stack<EditorMemento> historico = new Stack<>();
+    private final Stack<EditorMemento> historico = new Stack<>();
 
     public void fazerBackup(EditorTexto editor) {
         historico.push(editor.criarSnapshot());
