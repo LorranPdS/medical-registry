@@ -5,6 +5,13 @@ import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
+/*
+    3. CARETAKER - responsável por gerenciar o histórico
+
+    Para manter o Service focado apenas na coordenação das ações, isolamos a responsabilidade
+    de "guardar e buscar históricos" em um componente à parte.
+    Aqui simulamos o armazenamento em memória RAM mapeado por ID, simulando o comportamento de tabelas de auditoria.
+ */
 @Repository
 public class ArtigoHistoryRepository {
 
