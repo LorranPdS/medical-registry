@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 @Service
 public class ArtigoService {
@@ -16,15 +17,15 @@ public class ArtigoService {
     private final ArtigoHistoryRepository historyRepository;
 
     // Simulação do nosso banco de dados relacional principal de artigos
-    private final Map<Long, Artigo> bancoPrincipalArtigos = new HashMap<>();
+    private final Map<UUID, Artigo> bancoPrincipalArtigos = new HashMap<>();
 
     public ArtigoService(ArtigoHistoryRepository historyRepository) {
         this.historyRepository = historyRepository;
         // Populando dados iniciais na inicialização para fins de teste
-        bancoPrincipalArtigos.put(1L, new Artigo("O Sol vai brilhar amanhã", "Previsão de tempo limpo."));
+        bancoPrincipalArtigos.put(UUID.fromString("6b31cbbe-db68-4d2c-b655-fcd123f676dd"), new Artigo("O Sol vai brilhar amanhã", "Previsão de tempo limpo."));
     }
 
-    public ArtigoResponse atualizarArtigo(Long id, ArtigoRequest request) {
+    public ArtigoResponse atualizarArtigo(UUID id, ArtigoRequest request) {
         Artigo artigoExistente = bancoPrincipalArtigos.get(id);
         if (artigoExistente == null) {
             throw new RuntimeException("Artigo não localizado");
@@ -45,7 +46,7 @@ public class ArtigoService {
         return new ArtigoResponse(id, artigoExistente.getTitulo(), artigoExistente.getTexto());
     }
 
-    public ArtigoResponse desfazerUltimaAlteracao(Long id) {
+    public ArtigoResponse desfazerUltimaAlteracao(UUID id) {
         Artigo artigoExistente = bancoPrincipalArtigos.get(id);
         if (artigoExistente == null) {
             throw new RuntimeException("Artigo não localizado");

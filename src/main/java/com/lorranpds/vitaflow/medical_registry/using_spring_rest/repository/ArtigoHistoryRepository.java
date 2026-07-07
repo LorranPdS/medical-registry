@@ -9,15 +9,16 @@ import java.util.*;
 public class ArtigoHistoryRepository {
 
     // Cada ID de artigo ganha a sua própria pilha (Stack) independente de históricos
-    private final Map<Long, Deque<ArtigoMemento>> tabelasDeHistorico = new HashMap<>();
+    // Mudamos a chave do mapa de Long para UUID. Segurança total por isolamento
+    private final Map<UUID, Deque<ArtigoMemento>> tabelasDeHistorico = new HashMap<>();
 
-    public void salvarNoHistorico(Long artigoId, ArtigoMemento snapshot) {
-        tabelasDeHistorico.putIfAbsent(artigoId, new ArrayDeque<>());
-        tabelasDeHistorico.get(artigoId).push(snapshot);
+    public void salvarNoHistorico(UUID artigoCodigo, ArtigoMemento snapshot) {
+        tabelasDeHistorico.putIfAbsent(artigoCodigo, new ArrayDeque<>());
+        tabelasDeHistorico.get(artigoCodigo).push(snapshot);
     }
 
-    public Optional<ArtigoMemento> buscarUltimoHistorico(Long artigoId) {
-        Deque<ArtigoMemento> pilha = tabelasDeHistorico.get(artigoId);
+    public Optional<ArtigoMemento> buscarUltimoHistorico(UUID artigoCodigo) {
+        Deque<ArtigoMemento> pilha = tabelasDeHistorico.get(artigoCodigo);
         if (pilha != null && !pilha.isEmpty()) {
             return Optional.of(pilha.pop()); // Remove e entrega o último backup feito
         }
