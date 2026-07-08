@@ -2,6 +2,7 @@ package com.lorranpds.vitaflow.medical_registry.using_spring_rest.repository;
 
 import com.lorranpds.vitaflow.medical_registry.using_spring_rest.model.ArtigoMemento;
 import org.springframework.stereotype.Repository;
+import org.springframework.util.CollectionUtils;
 
 import java.util.*;
 
@@ -26,7 +27,7 @@ public class ArtigoHistoryRepository {
 
     public Optional<ArtigoMemento> buscarUltimoHistorico(UUID artigoCodigo) {
         Deque<ArtigoMemento> pilha = tabelasDeHistorico.get(artigoCodigo);
-        if (pilha != null && !pilha.isEmpty()) {
+        if (!CollectionUtils.isEmpty(pilha)) {
             return Optional.of(pilha.pop()); // Remove e entrega o último backup feito
         }
         return Optional.empty();
