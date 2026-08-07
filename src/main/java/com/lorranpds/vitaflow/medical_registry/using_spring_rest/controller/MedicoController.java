@@ -31,7 +31,7 @@ public class MedicoController {
             String crm) {
 
         // 1. O Controller recebe a requisição validada e repassa para o Service
-        Medico medico = consultaMedicoService.buscarEMagilizaSituacao(crm);
+        Medico medico = consultaMedicoService.consultaAndValidaSituacao(crm);
 
         // 2. Mapeia o resultado de domínio para o DTO de Response HTTP
         MedicoResponseDTO response = MedicoResponseDTO.fromDomain(medico);

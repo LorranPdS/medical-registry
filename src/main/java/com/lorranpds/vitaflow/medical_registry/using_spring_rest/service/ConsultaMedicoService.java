@@ -22,7 +22,7 @@ public class ConsultaMedicoService {
         this.medicoConselhoGateway = medicoConselhoGateway;
     }
 
-    public Medico buscarEMagilizaSituacao(String crm) {
+    public Medico consultaAndValidaSituacao(String crm) {
         Medico medico = medicoConselhoGateway.buscarPorCrm(crm);
 
         // Exemplo de regra de negócio da aplicação
