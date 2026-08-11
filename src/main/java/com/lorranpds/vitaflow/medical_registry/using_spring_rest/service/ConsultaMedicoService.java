@@ -25,7 +25,7 @@ public class ConsultaMedicoService {
     public Medico consultaAndValidaSituacao(String crm) {
         Medico medico = medicoConselhoGateway.buscarPorCrm(crm);
 
-        // Exemplo de regra de negócio da aplicação
+        // Exemplo de regra de negócio da aplicação (EMBORA não faça sentido ter regra de negócio pra isso na realidade)
         if (!medico.ativo()) {
             throw new IllegalStateException("O CRM informado encontra-se inativo no conselho.");
         }
