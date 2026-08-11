@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 // A anotação @Primary faz o Spring injetar esta classe no lugar do Adapter real que faz a chamada HTTP
 @Primary
 @Component
-public class GovernoMedicoMockAdapter implements MedicoConselhoGateway {
+public class GovernoMedicoMockAdapter implements ConselhoMedicoGateway {
 
     @Override
     public Medico buscarPorCrm(String crm) {

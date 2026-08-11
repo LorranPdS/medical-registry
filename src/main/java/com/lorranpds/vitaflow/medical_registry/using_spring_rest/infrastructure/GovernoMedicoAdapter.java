@@ -11,7 +11,7 @@ import org.springframework.web.client.RestClient;
             (ou RestTemplate) e traduz a resposta para a nossa entidade/DTO de domínio.
  */
 @Component
-public class GovernoMedicoAdapter implements MedicoConselhoGateway {
+public class GovernoMedicoAdapter implements ConselhoMedicoGateway {
 
     private final RestClient restClient;
 

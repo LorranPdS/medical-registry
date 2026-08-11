@@ -1,7 +1,7 @@
 package com.lorranpds.vitaflow.medical_registry.using_spring_rest.service;
 
 import com.lorranpds.vitaflow.medical_registry.using_spring_rest.domain.Medico;
-import com.lorranpds.vitaflow.medical_registry.using_spring_rest.infrastructure.MedicoConselhoGateway;
+import com.lorranpds.vitaflow.medical_registry.using_spring_rest.infrastructure.ConselhoMedicoGateway;
 import org.springframework.stereotype.Service;
 
 /*
@@ -15,10 +15,10 @@ import org.springframework.stereotype.Service;
 @Service
 public class ConsultaMedicoService {
 
-    private final MedicoConselhoGateway medicoConselhoGateway;
+    private final ConselhoMedicoGateway medicoConselhoGateway;
 
     // Injeção de dependência via construtor da interface (Target)
-    public ConsultaMedicoService(MedicoConselhoGateway medicoConselhoGateway) {
+    public ConsultaMedicoService(ConselhoMedicoGateway medicoConselhoGateway) {
         this.medicoConselhoGateway = medicoConselhoGateway;
     }
 
