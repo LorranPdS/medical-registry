@@ -7,9 +7,9 @@ import com.lorranpds.vitaflow.medical_registry.classic_facade.subsistemascomplex
 // 2. O Facade
 public class HomeTheaterFacade {
 
-    private Iluminacao luzes;
-    private ArCondicionado ar;
-    private Televisao tv;
+    private final Iluminacao luzes;
+    private final ArCondicionado ar;
+    private final Televisao tv;
 
     public HomeTheaterFacade(){
         this.luzes = new Iluminacao();
