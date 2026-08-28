@@ -1,5 +1,9 @@
 # medical-registry
 
+  Para evitar os exemplos clássicos de e-commerce e finanças, vamos usar dois 
+  cenários diferentes: Automação Residencial (Clássico) 
+  e Admissão de Funcionários (Onboarding) (Spring REST).
+
 - a) Modelo Clássico (Automação Residencial)
 
   Imagine o trabalho para ligar um Home Theater.
