@@ -12,7 +12,7 @@ import java.util.UUID;
         pois o AD da Microsoft é o sistema que gerencia os usuários, logins e permissões da empresa).
  */
 
-// --- Subsistemas (Domain Services) ---
+// 1 - Subsistemas complexos (Domain Services)
 @Service
 public class ActiveDirectoryService{ // A tradução literal seria "Serviço de Diretório Ativo
     public void concederAcessosIniciais(UUID idFuncionario){

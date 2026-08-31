@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.UUID;
 
-// --- O Facade (Application Service / Orchestrator) ---
+// 2 - Facade (Application Service / Orchestrator) ---
 @Component // Ou @Service, dependendo da sua convenção arquitetural
 @RequiredArgsConstructor
 public class OnboardingFacade{

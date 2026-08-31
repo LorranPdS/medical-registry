@@ -4,7 +4,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.UUID;
 
-// --- Subsistemas (Domain Services) ---
+// 1 - Subsistemas complexos (Domain Services)
 @Service
 public class EquipamentoService{
     public void solicitarNotebook(UUID idFuncionario){
