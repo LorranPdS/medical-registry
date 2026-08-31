@@ -16,6 +16,7 @@ import java.util.UUID;
 @Service
 public class ActiveDirectoryService{ // A tradução literal seria "Serviço de Diretório Ativo
     public void concederAcessosIniciais(UUID idFuncionario){
+        // Esse corpo simula algum tipo de lógica complexa com várias ações
         System.out.println("Permissões iniciais concedidas ao usuário " + idFuncionario);
     }
 }

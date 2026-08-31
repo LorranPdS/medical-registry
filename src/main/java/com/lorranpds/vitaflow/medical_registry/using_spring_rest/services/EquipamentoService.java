@@ -8,6 +8,7 @@ import java.util.UUID;
 @Service
 public class EquipamentoService{
     public void solicitarNotebook(UUID idFuncionario){
+        // Esse corpo simula algum tipo de lógica complexa com várias ações
         System.out.println("Solicitação de notebook concluída com sucesso para o funcionário " + idFuncionario);
     }
 }

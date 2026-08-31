@@ -8,6 +8,7 @@ import java.util.UUID;
 @Service
 public class EmailService{
     public void criarEmailCorporativo(UUID idFuncionario){
+        // Esse corpo simula algum tipo de lógica complexa com várias ações
         System.out.println("Email corporativo criado com sucesso para o usuário " + idFuncionario);
     }
 }
