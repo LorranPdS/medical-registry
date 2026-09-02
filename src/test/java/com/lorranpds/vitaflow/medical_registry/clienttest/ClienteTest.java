@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 import static com.lorranpds.vitaflow.medical_registry.classic_proxy.model.Cargo.ANALISTA_JUNIOR;
 import static com.lorranpds.vitaflow.medical_registry.classic_proxy.model.Cargo.DIRETOR;
 
+// 4. Cliente usando proxy
 public class ClienteTest {
 
     @Test
