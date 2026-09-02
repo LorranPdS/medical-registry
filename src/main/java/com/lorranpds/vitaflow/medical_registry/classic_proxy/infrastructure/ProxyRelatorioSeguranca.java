@@ -5,6 +5,8 @@ import com.lorranpds.vitaflow.medical_registry.classic_proxy.model.Cargo;
 import com.lorranpds.vitaflow.medical_registry.classic_proxy.services.RelatorioInteligencia;
 import com.lorranpds.vitaflow.medical_registry.classic_proxy.services.RelatorioUltraSecreto;
 
+import java.util.Objects;
+
 // 3 - Proxy (Controla o acesso ao Real Subject)
 public class ProxyRelatorioSeguranca implements RelatorioInteligencia {
 
@@ -12,7 +14,11 @@ public class ProxyRelatorioSeguranca implements RelatorioInteligencia {
 
     @Override
     public String lerConteudo(Agente agente){
-        // Lógica do Proxy: Verificação de acesso
+        // 1. Barreira defensiva: falha imediatamente se o argumento obrigatório for nulo
+        Objects.requireNonNull(agente, "O agente requisitante não pode ser nulo.");
+
+        // LÓGICA DO PROXY ABAIXO: VERIFICAÇÃO DE ACESSO
+        // 2. Validação de perfil (agora 100% segura contra NPE no agente)
         if (!Cargo.DIRETOR.equals(agente.cargo())) {
             throw new SecurityException("Acesso negado para o agente: " + agente.nome());
         }
