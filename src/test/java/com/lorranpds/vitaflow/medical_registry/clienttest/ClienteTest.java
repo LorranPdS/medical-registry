@@ -30,4 +30,15 @@ public class ClienteTest {
         System.out.println(exception.getMessage());
         System.err.println(exception.getClass()); // Lança SecurityException
     }
+
+    @Test
+    public void testaAcessoNegadoCasoAgenteNaoTenhaSidoAtribuido(){
+        RelatorioInteligencia relatorio = new ProxyRelatorioSeguranca();
+        Agente agenteNaoAtribuido = null;
+
+        // Falha:
+        NullPointerException exception = Assertions.assertThrows(NullPointerException.class, () -> relatorio.lerConteudo(agenteNaoAtribuido));
+        System.out.println(exception.getMessage());
+        System.err.println(exception.getClass()); // Lança NullPointerException
+    }
 }
