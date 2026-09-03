@@ -8,7 +8,13 @@ import org.springframework.context.annotation.Configuration;
 
 import java.time.Duration;
 
-// Classe de configuração para que o armazenamento de cache não fique toda vida guardando dados.
+/*
+    Classe de configuração para que o armazenamento de cache não fique toda vida guardando dados.
+
+    Nesse caso eu usei o Caffeine com armazenamento na memória RAM da JVM (heap memory), mas para ambientes
+        de Produção, o melhor seria o "REDIS". Coloquei o motivo disso no Notion nas dúvidas que
+        foram surgindo com a implementação do Proxy, bem como um exemplo de como implementá-lo.
+ */
 @Configuration
 public class CacheConfig {
 
