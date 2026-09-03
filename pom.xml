@@ -85,6 +85,17 @@
 			<artifactId>spring-rabbit-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+			<!-- 1. Suporte e infraestrutura de Cache do Spring Framework -->
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-cache</artifactId>
+			</dependency>
+
+			<!-- 2. A biblioteca do Caffeine (motor de alta performance com suporte a TTL) -->
+			<dependency>
+				<groupId>com.github.ben-manes.caffeine</groupId>
+				<artifactId>caffeine</artifactId>
+			</dependency>
 	</dependencies>
 
 	<build>
