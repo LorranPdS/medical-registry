@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 public class OpenWeatherPrevisaoService {
 
     // O Spring cria um Proxy ao redor deste metodo graças à anotação @Cacheable!
-    @Cacheable(value = "climaCache", key = "#cidade")
+    @Cacheable(key = "#cidade", value = "climaCache")
     public ClimaResponse buscarClima(String cidade){
         System.out.println(">> Chamando API externa cara da OPEN WEATHER para o clima em: " + cidade);
         // Simulação de delay de rede
