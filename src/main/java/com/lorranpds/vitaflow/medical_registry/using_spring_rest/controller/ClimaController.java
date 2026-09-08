@@ -2,6 +2,7 @@ package com.lorranpds.vitaflow.medical_registry.using_spring_rest.controller;
 
 import com.lorranpds.vitaflow.medical_registry.using_spring_rest.dto.ClimaResponse;
 import com.lorranpds.vitaflow.medical_registry.using_spring_rest.services.OpenWeatherPrevisaoService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,9 +21,11 @@ public class ClimaController{
     }
 
     @GetMapping("/{cidade}")
-    public ClimaResponse obterClima(@PathVariable String cidade){
+    public ResponseEntity<ClimaResponse> obterClima(@PathVariable String cidade){
         // Na 1ª vez, o Proxy repassa a chamada para o objeto real e guarda o resultado.
         // Na 2ª vez, o Proxy devolve o dado da memória, sem chamar a classe real.
-        return climaService.buscarClima(cidade);
+
+        ClimaResponse climaResponse = climaService.buscarClima(cidade);
+        return ResponseEntity.ok(climaResponse);
     }
 }
